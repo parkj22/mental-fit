@@ -1,12 +1,14 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import { Text, SafeAreaView, TextInput, View } from 'react-native'
+import React, { useLayoutEffect } from 'react'
+import { useNavigation } from '@react-navigation/native'
 
 const HomeScreen = () => {
+
   return (
-    <View>
-      <Text className="text-red-500">HomeScreen</Text>
-    </View>
+    <SafeAreaView>
+      <Text className="text-color-[#00034C] font-bold text-2xl">HomeScreen</Text>
+    </SafeAreaView>
   )
 }
 
-export default HomeScreen
+export default HomeScreen;
