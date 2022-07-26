@@ -1,7 +1,7 @@
 import { View, Text } from 'react-native'
-import React from 'react'
+import React, { ReactElement } from 'react'
 
-const InsightsScreen = () => {
+const InsightsScreen = (): ReactElement | null => {
   return (
     <View>
       <Text>InsightsScreen</Text>

@@ -5,17 +5,18 @@ import HomeScreen from "./screens/HomeScreen";
 import InsightsScreen from "./screens/InsightsScreen";
 import CommunityScreen from "./screens/CommunityScreen";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { ReactElement } from "react";
 
 
 const Tab = createBottomTabNavigator();
 
-export default function App() {
+export default function App(): ReactElement | null {
   return (
     <NavigationContainer>
       <TailwindProvider>
         <Tab.Navigator screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
-            let iconName;
+            let iconName: any;
 
             // Set icons for each screens
             if (route.name == "Home") {

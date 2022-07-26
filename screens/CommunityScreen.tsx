@@ -1,7 +1,7 @@
 import { View, Text } from 'react-native'
-import React from 'react'
+import React, { ReactElement } from 'react'
 
-const CommunityScreen = () => {
+const CommunityScreen = (): ReactElement | null => {
   return (
     <View>
       <Text>CommunityScreen</Text>

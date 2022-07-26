@@ -1,8 +1,13 @@
 import { View, Image, Text, Pressable, TouchableOpacity } from "react-native";
-import React from "react";
+import React, { ReactElement } from "react";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import "tailwindcss-react-native/types.d";  // Need to add this type file to use 'className' prop
 
-const Header = ({ screenName }) => {
+type HeaderProps = {
+  screenName: string,
+}
+
+const Header = ({ screenName }: HeaderProps): ReactElement | null => {
   // TODO: Implement press handlers
   const onProfilePress = () => {};
   const onCalendarPress = () => {};
@@ -26,7 +31,7 @@ const Header = ({ screenName }) => {
               <TouchableOpacity>
                 <View className="flex flex-row items-center space-x-1">
                   <Text className="text-base">July</Text>
-                  <Ionicons name="calendar-outline" size="30" color="#00034C" />
+                  <Ionicons name="calendar-outline" size={30} color="#00034C" />
                 </View>
               </TouchableOpacity>
             </Pressable>
@@ -34,7 +39,7 @@ const Header = ({ screenName }) => {
               <TouchableOpacity>
                 <Ionicons
                   name="notifications-outline"
-                  size="30"
+                  size={30}
                   color="#00034C"
                 />
               </TouchableOpacity>

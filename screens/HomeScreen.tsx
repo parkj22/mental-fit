@@ -1,12 +1,13 @@
 import { SafeAreaView, ScrollView, View } from 'react-native'
-import React, { useLayoutEffect } from 'react'
+import React, { ReactElement, useLayoutEffect } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import Header from '../components/Header';
 import CalendarColumn from '../components/CalendarColumn';
 import DailyInfo from '../components/DailyInfo';
 import AddInfoSection from '../components/AddInfoSection';
+import "tailwindcss-react-native/types.d";  // Need to add this type file to use 'className' prop
 
-const HomeScreen = () => {
+const HomeScreen = (): ReactElement | null => {
   const navigation = useNavigation();
 
   useLayoutEffect(() => {
