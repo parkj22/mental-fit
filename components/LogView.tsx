@@ -1,4 +1,4 @@
-import { View, Text, Button, Pressable } from "react-native";
+import { View, Text, Button, Pressable, TouchableOpacity } from "react-native";
 import React, { Dispatch, ReactElement, SetStateAction, useState } from "react";
 import PagerView from "react-native-pager-view";
 import { StyleSheet } from "react-native";
@@ -72,22 +72,32 @@ const LogView = (): ReactElement | null => {
           <Text className="text-xl font-light text-[#163838]">
             How many hours did you sleep last night?
           </Text>
-          <Pressable
-            onPress={() => {
-              showTimePicker(setBedTimePickerVisibility);
-            }}
-          >
-            <Text>When did you go to bed?</Text>
-          </Pressable>
-          <Pressable
-            onPress={() => {
-              showTimePicker(setWakeUpTimePickerVisibility);
-            }}
-          >
-            <Text>When did you wake up?</Text>
-            <Text>Bed Time: {bedTime.toLocaleTimeString()}</Text>
-            <Text>Wake up Time: {wakeUpTime.toLocaleTimeString()}</Text>
-          </Pressable>
+          <View className="flex flex-row items-center justify-center">
+            <View>
+              <Pressable
+                onPress={() => {
+                  showTimePicker(setBedTimePickerVisibility);
+                }}
+              >
+                <TouchableOpacity>
+                  <Text>When did you go to bed?</Text>
+                </TouchableOpacity>
+              </Pressable>
+            </View>
+            <View>
+              <Pressable
+                onPress={() => {
+                  showTimePicker(setWakeUpTimePickerVisibility);
+                }}
+              >
+                <TouchableOpacity>
+                  <Text>When did you wake up?</Text>
+                </TouchableOpacity>
+              </Pressable>
+            </View>
+          </View>
+          <Text>Bed Time: {bedTime.toLocaleTimeString()}</Text>
+          <Text>Wake up Time: {wakeUpTime.toLocaleTimeString()}</Text>
           <DateTimePickerModal
             isVisible={isBedTimePickerVisible}
             mode="time"
