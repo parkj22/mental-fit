@@ -1,11 +1,13 @@
-import { SafeAreaView, ScrollView, View } from 'react-native'
-import React, { ReactElement, useLayoutEffect } from 'react'
-import { useNavigation } from '@react-navigation/native'
-import Header from '../components/Header';
-import CalendarColumn from '../components/CalendarColumn';
-import DailyInfo from '../components/DailyInfo';
-import AddInfoSection from '../components/AddInfoSection';
-import "tailwindcss-react-native/types.d";  // Need to add this type file to use 'className' prop
+import { SafeAreaView, ScrollView, Text, View } from "react-native";
+import React, { ReactElement, useLayoutEffect } from "react";
+import { useNavigation } from "@react-navigation/native";
+import Header from "../components/Header";
+import CalendarColumn from "../components/CalendarColumn";
+import { StyleSheet } from "react-native";
+import AddInfoSection from "../components/AddInfoSection";
+import "tailwindcss-react-native/types.d"; // Need to add this type file to use 'className' prop
+import LogContainer from "../components/LogContainer";
+import LogView from "../components/LogView";
 
 const HomeScreen = (): ReactElement | null => {
   const navigation = useNavigation();
@@ -13,7 +15,7 @@ const HomeScreen = (): ReactElement | null => {
   useLayoutEffect(() => {
     navigation.setOptions({
       headerShown: false,
-    })
+    });
   }, []);
 
   return (
@@ -21,7 +23,7 @@ const HomeScreen = (): ReactElement | null => {
       <Header screenName="Home" />
       <ScrollView>
         <CalendarColumn />
-        <DailyInfo />
+        <LogView />
         <AddInfoSection text="My daily insights - Today">
           <View className="h-36 bg-slate-400"></View>
         </AddInfoSection>
@@ -29,10 +31,14 @@ const HomeScreen = (): ReactElement | null => {
           <View className="h-36 bg-slate-400"></View>
         </AddInfoSection>
       </ScrollView>
-        {/* Additional information - Refer to MoodFit */}
-
+      {/* Additional information - Refer to MoodFit */}
     </SafeAreaView>
-  )
-}
+  );
+};
+const styles = StyleSheet.create({
+  pagerView: {
+    flex: 1,
+  },
+});
 
 export default HomeScreen;

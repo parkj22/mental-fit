@@ -1,17 +1,33 @@
 import { View, Image, Text, Pressable, TouchableOpacity } from "react-native";
 import React, { ReactElement } from "react";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import "tailwindcss-react-native/types.d";  // Need to add this type file to use 'className' prop
+import "tailwindcss-react-native/types.d"; // Need to add this type file to use 'className' prop
 
 type HeaderProps = {
-  screenName: string,
-}
+  screenName: string;
+};
 
 const Header = ({ screenName }: HeaderProps): ReactElement | null => {
   // TODO: Implement press handlers
   const onProfilePress = () => {};
   const onCalendarPress = () => {};
   const onNotificationsPress = () => {};
+
+  const monthNames = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  const today = new Date();
 
   return (
     <View className="flex flex-row items-center px-4 py-1">
@@ -30,7 +46,7 @@ const Header = ({ screenName }: HeaderProps): ReactElement | null => {
             <Pressable onPress={onCalendarPress}>
               <TouchableOpacity>
                 <View className="flex flex-row items-center space-x-1">
-                  <Text className="text-base">July</Text>
+                  <Text className="text-base">{monthNames[today.getMonth()]}</Text>
                   <Ionicons name="calendar-outline" size={30} color="#00034C" />
                 </View>
               </TouchableOpacity>
